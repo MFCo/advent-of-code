@@ -25,10 +25,18 @@ fs.readFile("input.txt", "utf8", (err, data) => {
   const result = data.split("\n").reduce((acc, line) => {
     const match = line.match(
       /[1-9]|one|two|three|four|five|six|seven|eight|nine/g
-    );
+    )[0];
+    const matchReverse = line
+      .split("")
+      .reverse()
+      .join("")
+      .match(/[1-9]|eno|owt|eerht|ruof|evif|xis|neves|thgie|enin/g)[0]
+      .split("")
+      .reverse()
+      .join("");
     return (
       acc +
-      parseInt(wordToNumber(match[0]) + wordToNumber(match[match.length - 1]))
+      parseInt(wordToNumber(match) + wordToNumber(matchReverse))
     );
   }, 0);
   console.log(result);
