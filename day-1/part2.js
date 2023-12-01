@@ -24,7 +24,7 @@ fs.readFile("input.txt", "utf8", (err, data) => {
 
   const result = data.split("\n").reduce((acc, line) => {
     const match = line.match(
-      /1|one|2|two|3|three|4|four|5|five|6|six|7|seven|8|eight|9|nine/g
+      /\d|one|two|three|four|five|six|seven|eight|nine/g
     );
     return acc + parseInt(wordToNumber(match[0]) + wordToNumber(match[match.length - 1]));
   }, 0);
