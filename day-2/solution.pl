@@ -1,3 +1,6 @@
+use strict;
+use warnings;
+
 open(my $input, '<', 'input.txt') or die "oops";
 
 my $id_acc = 0;
