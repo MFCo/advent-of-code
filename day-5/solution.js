@@ -43,15 +43,30 @@ fs.readFile("input.txt", "utf8", (err, data) => {
     return input;
   };
 
-  console.log(
-    Math.min(
-      ...seeds.map((seed, i) => {
-        let decoded = seed;
-        for (let j = 0; j < result.length; j++) {
-          decoded = convert(result[j], decoded);
-        }
-        return decoded;
-      })
-    )
-  );
+  let min = seeds[0];
+
+  for (let h = 0; h < seeds.length; h = h + 2) {
+    for (let i = 0; i < seeds[h + 1]; i++) {
+      let decoded = seeds[h] + i;
+      for (let j = 0; j < result.length; j++) {
+        decoded = convert(result[j], decoded);
+      }
+      min = min < decoded ? min :decoded;
+    }
+  }
+
+//   console.log(
+//     "PART 1:",
+//     Math.min(
+//       ...seeds.map((seed, i) => {
+//         let decoded = seed;
+//         for (let j = 0; j < result.length; j++) {
+//           decoded = convert(result[j], decoded);
+//         }
+//         return decoded;
+//       })
+//     )
+//   );
+
+  console.log("PART 2:", min);
 });
