@@ -6,7 +6,7 @@ const calculateLastNumber = (numbers) => {
   for (let i = 0; i < numbers.length - 1; i++) {
     differences.push(numbers[i + 1] - numbers[i]);
   }
-  return numbers[numbers.length - 1] + calculateLastNumber(differences);
+  return numbers.at(-1) + calculateLastNumber(differences);
 };
 
 fs.readFile("input.txt", "utf8", function (err, data) {

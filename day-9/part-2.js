@@ -6,7 +6,7 @@ const calculateFirstNumber = (numbers) => {
   for (let i = 0; i < numbers.length - 1; i++) {
     differences.push(numbers[i + 1] - numbers[i]);
   }
-  return numbers[0] - calculateFirstNumber(differences);
+  return numbers.at(0) - calculateFirstNumber(differences);
 };
 
 fs.readFile("input.txt", "utf8", function (err, data) {
