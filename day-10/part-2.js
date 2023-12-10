@@ -94,7 +94,7 @@ fs.readFile("input.txt", "utf8", function (err, data) {
 
   matrix[start.i][start.j].value = "L"; //manually calculated from the example to close the loop (should find a way to calculate it in the code)
 
-  let outside = [];
+  let insideCount = 0;
 
   for (let i = 0; i < matrix.length; i++) {
     let inside = false;
@@ -127,15 +127,13 @@ fs.readFile("input.txt", "utf8", function (err, data) {
         }
         corner = null;
       }
-      if (!inside && outside.findIndex((e) => e.i === i && e.j === j) === -1) {
-        outside.push({ i, j });
+      if (
+        inside &&
+        matrix[i][j].value === "."
+      ) {
+        insideCount++;
       }
     }
   }
-  let allTheNonInside = loop.concat(outside);
-  allTheNonInside = allTheNonInside.filter(
-    (value, index, self) =>
-      index === self.findIndex((t) => t.i === value.i && t.j === value.j)
-  );
-  console.log(matrix.length * matrix[0].length - allTheNonInside.length);
+  console.log(insideCount);
 });
