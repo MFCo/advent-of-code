@@ -27,7 +27,4 @@ foreach my $left_num (@left_column) {
     }
 }
 
-
 print "$total\n";
-
-

@@ -24,4 +24,3 @@ for my $i (0 .. $#sorted_left) {
 }
 
 print "$total\n";
-
