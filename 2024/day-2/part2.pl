@@ -23,7 +23,6 @@ sub is_safe_levels {
 
 while (my $line = <$fh>) {
     chomp $line;
-    $line =~ s/^\s+|\s+$//g;
     my @levels = split(/\s+/, $line);
     next if scalar(@levels) < 2;
 
