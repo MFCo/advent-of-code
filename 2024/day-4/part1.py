@@ -27,8 +27,7 @@ def count_xmas(puzzle_grid):
             current_x, current_y = x, y
             found = True
             for char in word:
-                if not is_valid_position(current_x, current_y, rows, cols) or \
-                   puzzle_grid[current_x][current_y] != char:
+                if not is_valid_position(current_x, current_y, rows, cols) or puzzle_grid[current_x][current_y] != char:
                     found = False
                     break
                 current_x += dx
