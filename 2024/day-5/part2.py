@@ -1,7 +1,26 @@
-def middle_sum():
+
+def reorder_sequence(sequence, rules):
+    changed = True
+    # IS THIS BUBBLE SORT?
+    while changed:
+        changed = False
+        for a, b in rules:
+            try:
+                pos_a = sequence.index(a)
+                pos_b = sequence.index(b)
+                if pos_b < pos_a:
+                    sequence[pos_a], sequence[pos_b] = sequence[pos_b], sequence[pos_a]
+                    changed = True
+            except ValueError:
+                continue
+    
+    return sequence
+
+def get_my_result_pls():
     rules = []
     total = 0
     reading_rules = True
+    
     with open('input.txt', 'r') as file:
         for line in file:
             line = line.strip()
@@ -23,8 +42,9 @@ def middle_sum():
                             break
                     except ValueError:
                         continue
-                if valid:
-                    total += sequence[len(sequence) // 2]
+                if not valid:
+                    reordered = reorder_sequence(sequence, rules)
+                    total += reordered[len(reordered) // 2]
     return total
 
-print(middle_sum())
+print(get_my_result_pls())
