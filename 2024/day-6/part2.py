@@ -32,7 +32,6 @@ def count_cycle_possibilities(grid):
     rows = len(grid)
     cols = len(grid[0])
     count = 0
-    cycles = []
     # Yes, I'm brute forcing this
     for i in range(rows):
         for j in range(cols):
@@ -41,7 +40,6 @@ def count_cycle_possibilities(grid):
                 new_grid[i][j] = '#'
                 if check_cycle(new_grid):
                     count += 1
-                    cycles.append((i, j))
     return count
 
 try:
