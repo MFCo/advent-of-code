@@ -16,7 +16,7 @@ def count_steps(grid):
     while True:
         new_x = x + dx[direction]
         new_y = y + dy[direction]
-        if not 0<= new_x < rows and 0 <= new_y < cols:
+        if not (0<= new_x < rows and 0 <= new_y < cols):
             break
         if grid[new_x][new_y] == '#':
             direction = (direction +1) % 4
@@ -30,4 +30,4 @@ try:
         grid = [list(line.strip()) for line in file.readlines()]
     print(count_steps(grid))
 except FileNotFoundError:
-    print("Error: input.txt file not found")
+    print("WARUM?")
