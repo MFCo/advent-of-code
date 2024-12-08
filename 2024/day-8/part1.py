@@ -36,4 +36,3 @@ try:
     print(find_antinodes(grid))
 except FileNotFoundError:
     print("WARUM?")
-
