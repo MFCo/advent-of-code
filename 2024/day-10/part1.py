@@ -8,9 +8,6 @@ def read_grid(filename):
             grid.append(row)
     return grid
 
-def is_valid(x, y, rows, cols):
-    return 0 <= x < rows and 0 <= y < cols
-
 def bfs(grid, start_x, start_y):
     rows, cols = len(grid), len(grid[0])
     visited = {}
